@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+}
+
+#menu-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+#menu-overlay.active {
+  transform: scale(1);
+}
+
+#menu-overlay ul {
+  position: relative;
+}
+
+#menu-overlay ul li {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  display: block;
+}
+
+#menu-overlay ul li a {
+  position: relative;
+  text-decoration: none;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 3.5em;
+  color: #fff;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+#menu-overlay ul li a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left;
+  transition: 0.5s transform;
+}
+
+#menu-overlay ul li a:hover:before {
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: right;
+  transition: 0.5s transform;
+}
+
+#toggleButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: url(open-menu.svg);
+  z-index: 1;
+  cursor: pointer;
+}
+
+#toggleButton.active {
+  background: url(close.svg);
+  fill: #fff;
+}
